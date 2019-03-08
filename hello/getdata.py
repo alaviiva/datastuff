@@ -13,18 +13,21 @@ def getdata():
 
     r = requests.get(URL, headers=headers)
     j = r.json()
-    date = datetime.fromisoformat(j["date"][:19])
-    
+    d = datetime.fromisoformat(j["date"][:19])
+    if (Sensordata.objects.filter(date=d).count() > 0):
+        print("nothing new")
+        return False
 
     data = Sensordata()
-    data.date = date
+    data.date = d
     data.sensor1=j["sensor1"]
     data.sensor2=j["sensor2"]
     data.sensor3=j["sensor3"]
     data.sensor4=j["sensor4"]
-    #data.save()
+    data.save()
 
     print("update", j)
+    return True
 
 def startscheduler():
     print("startscheduler")
