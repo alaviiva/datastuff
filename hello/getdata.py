@@ -33,5 +33,5 @@ def startscheduler():
     print("startscheduler")
     scheduler = BackgroundScheduler()
     #getdata()
-    scheduler.add_job(getdata, 'interval', minutes=1)
+    scheduler.add_job(getdata, 'interval', hours=1)
     scheduler.start()
