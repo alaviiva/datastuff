@@ -3,7 +3,7 @@ import os
 import requests
 from hello.models import Sensordata
 from datetime import datetime
-from apscheduler.schedulers.background import BackgroundScheduler
+from apscheduler.schedulers.blocking import BlockingScheduler
 
 URL = "https://opendata.hopefully.works/api/events"
 TOKEN = os.environ["API_TOKEN"]
@@ -34,7 +34,7 @@ class Command(BaseCommand):
 
     def startscheduler(self):
         print("startscheduler")
-        scheduler = BackgroundScheduler()
+        scheduler = BlockingScheduler()
         self.getdata()
         scheduler.add_job(self.getdata, 'interval', hours=1)
         scheduler.start()
