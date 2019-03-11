@@ -15,7 +15,8 @@ class Command(BaseCommand):
 
         r = requests.get(URL, headers=headers)
         j = r.json()
-        d = datetime.fromisoformat(j["date"][:19])
+        d = datetime.fromisoformat(j["date"][:19]+"+00:00")
+        print(d)
         if (Sensordata.objects.filter(date=d).count() > 0):
             print("nothing new")
             return False
