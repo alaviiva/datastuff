@@ -5,7 +5,6 @@ from django.contrib import admin
 admin.autodiscover()
 
 import hello.views
-from hello.getdata import *
 # To add a new path, first import the app:
 # import blog
 #
@@ -19,7 +18,3 @@ urlpatterns = [
     path("db/", hello.views.db, name="db"),
     path("admin/", admin.site.urls),
 ]
-
-print("kala")
-startscheduler()
-
