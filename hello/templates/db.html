@@ -5,16 +5,22 @@
   <div class="container">
 
 
-<h2>Page View Report</h2>
+<h2>Data</h2>
 
 
-<ul>
+<table>
 
-{% for greeting in greetings %}
-    <li>{{ greeting.when }}</li>
+{% for d in data %}
+    <tr>
+        <td>{{ d.date }}</td>
+        <td>{{ d.sensor1 }}</td>
+        <td>{{ d.sensor2 }}</td>
+        <td>{{ d.sensor3 }}</td>
+        <td>{{ d.sensor4 }}</td>
+    </tr>
 {% endfor %}
 
-</ul>
+</table>
 
 </div>
 
