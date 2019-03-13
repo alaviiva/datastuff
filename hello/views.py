@@ -24,7 +24,7 @@ def test(request):
 
     fig=Figure()
     ax=fig.add_subplot(111)
-    data = Sensordata.objects.all()
+    data = Sensordata.objects.all()[4:]
     x = data.values_list("date", flat=True)
     y = data.values_list("sensor1", flat=True)
     print(x)
