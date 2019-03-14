@@ -39,3 +39,18 @@ def lineplot(request, sensor):
     canvas.print_png(buf)
     response=HttpResponse(buf.getvalue(), content_type='image/png')
     return response
+
+def histogram(request, sensor):
+
+    fig=Figure()
+    ax=fig.add_subplot(111)
+    data = Sensordata.objects.all()[4:]
+    x = data.values_list(sensor, flat=True)
+
+    ax.hist(x, bins=15)
+
+    buf = io.BytesIO()
+    canvas=FigureCanvas(fig)
+    canvas.print_png(buf)
+    response=HttpResponse(buf.getvalue(), content_type='image/png')
+    return response

@@ -17,5 +17,6 @@ urlpatterns = [
     path("", hello.views.index, name="index"),
     path("db/", hello.views.db, name="db"),
     path("lineplot/<slug:sensor>", hello.views.lineplot, name="lineplot"),
+    path("histogram/<slug:sensor>", hello.views.histogram, name="histogram"),
     #path("admin/", admin.site.urls),
 ]
