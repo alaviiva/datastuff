@@ -2,42 +2,47 @@
 {% load staticfiles %}
 
 {% block content %}
-  <div class="container">
-
 
 <h2>Data</h2>
 
-<img src="/lineplot/sensor1">
+<div>
+    <h3>Line graphs</h3>
+    <img src="/lineplot/sensor1">
+    <img src="/lineplot/sensor2">
+    <img src="/lineplot/sensor3">
+    <img src="/lineplot/sensor4">
+</div>
+<div>
+    <h3>Histograms</h3>
+    <img src="/histogram/sensor1">
+    <img src="/histogram/sensor2">
+    <img src="/histogram/sensor3">
+    <img src="/histogram/sensor4">
+</div>
 
-<img src="/lineplot/sensor2">
 
-<img src="/lineplot/sensor3">
+<div>
+    <h3>Raw data</h3>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Sensor1</th>
+            <th>Sensor2</th>
+            <th>Sensor3</th>
+            <th>Sensor4</th>
+        </tr>
 
-<img src="/lineplot/sensor4">
+        {% for d in data %}
+            <tr>
+                <td>{{ d.date }}</td>
+                <td>{{ d.sensor1 }}</td>
+                <td>{{ d.sensor2 }}</td>
+                <td>{{ d.sensor3 }}</td>
+                <td>{{ d.sensor4 }}</td>
+            </tr>
+        {% endfor %}
 
-<img src="/histogram/sensor1">
-
-<img src="/histogram/sensor2">
-
-<img src="/histogram/sensor3">
-
-<img src="/histogram/sensor4">
-
-
-<table>
-
-{% for d in data %}
-    <tr>
-        <td>{{ d.date }}</td>
-        <td>{{ d.sensor1 }}</td>
-        <td>{{ d.sensor2 }}</td>
-        <td>{{ d.sensor3 }}</td>
-        <td>{{ d.sensor4 }}</td>
-    </tr>
-{% endfor %}
-
-</table>
-
+    </table>
 </div>
 
 {% endblock %}
