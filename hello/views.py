@@ -11,14 +11,9 @@ from matplotlib.dates import DateFormatter
 
 # Create your views here.
 def index(request):
-    # return HttpResponse('Hello from Python!')
-    return render(request, "index.html")
-
-
-def db(request):
     data = Sensordata.objects.all()
 
-    return render(request, "db.html", {"data": data})
+    return render(request, "data.html", {"data": data})
 
 def lineplot(request, sensor):
 
