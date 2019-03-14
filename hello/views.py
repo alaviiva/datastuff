@@ -18,6 +18,7 @@ def index(request):
 def lineplot(request, sensor):
 
     fig=Figure()
+    fig.suptitle(sensor)
     ax=fig.add_subplot(111)
     data = Sensordata.objects.all()[4:]
     x = data.values_list("date", flat=True)
@@ -38,6 +39,7 @@ def lineplot(request, sensor):
 def histogram(request, sensor):
 
     fig=Figure()
+    fig.suptitle(sensor)
     ax=fig.add_subplot(111)
     data = Sensordata.objects.all()[4:]
     x = data.values_list(sensor, flat=True)
