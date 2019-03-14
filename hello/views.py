@@ -27,7 +27,7 @@ def lineplot(request, sensor):
     print(y)
 
     ax.plot_date(x, y, '-')
-    ax.xaxis.set_major_formatter(DateFormatter('%Y-%m-%d'))
+    ax.xaxis.set_major_formatter(DateFormatter('%m.%d %H'))
     fig.autofmt_xdate()
 
     buf = io.BytesIO()
