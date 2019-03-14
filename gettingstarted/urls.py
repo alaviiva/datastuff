@@ -16,6 +16,6 @@ import hello.views
 urlpatterns = [
     path("", hello.views.index, name="index"),
     path("db/", hello.views.db, name="db"),
-    path("test/<slug:sensor>", hello.views.test, name="test"),
+    path("lineplot/<slug:sensor>", hello.views.lineplot, name="lineplot"),
     #path("admin/", admin.site.urls),
 ]

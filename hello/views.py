@@ -20,7 +20,7 @@ def db(request):
 
     return render(request, "db.html", {"data": data})
 
-def test(request, sensor):
+def lineplot(request, sensor):
 
     fig=Figure()
     ax=fig.add_subplot(111)
