@@ -20,13 +20,13 @@ def db(request):
 
     return render(request, "db.html", {"data": data})
 
-def test(request):
+def test(request, sensor):
 
     fig=Figure()
     ax=fig.add_subplot(111)
     data = Sensordata.objects.all()[4:]
     x = data.values_list("date", flat=True)
-    y = data.values_list("sensor1", flat=True)
+    y = data.values_list(sensor, flat=True)
     print(x)
     print(y)
 
